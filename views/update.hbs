@@ -1,0 +1,260 @@
+{{#extends 'base'}}
+
+  {{#block 'title'}}🧠 Update Availability {{/block}}
+
+  {{#block 'content'}}
+    <a
+      class='bg-green-500 hover:bg-green-700 text-white text-xs w-full font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
+      href='/user/change-password'
+    >
+      Click here if you want to change your password
+    </a>
+    <div
+      class='mb-5 w-full bg-gray-900 rounded-lg shadow-lg p-12 justify-center items-center lg:col-span-3 sm:col-span-3 md:col-span-3'
+    >
+      <div class='text-center'>
+        <p class='text-xl text-white font-bold mb-4'>Updating for
+          {{orgName.org_name}}</p>
+      </div>
+      <form method='post'>
+        <input type='hidden' name='_csrf' value='{{csrfToken}}' />
+
+        <!--Female start-->
+        <p class='text-xl text-gray-400 font-normal mb-3'><i
+            class='fas fa-female'
+          ></i>
+          Female</p>
+        <label
+          class='block text-gray-300 text-sm font-bold mb-1'
+          for='female_capacity'
+        >
+          Capacity
+        </label>
+        <input
+          class='shadow appearance-none border rounded mb-4 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+          id='female_capacity'
+          type='tel'
+          name='female_capacity'
+          placeholder=''
+          value={{orgName.female_capacity}}
+        />
+        <label
+          class='block text-gray-300 text-sm font-bold mb-1'
+          for='female_pending'
+        >
+          Pending
+        </label>
+        <input
+          class='shadow appearance-none border rounded mb-4 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+          id='female_pending'
+          type='tel'
+          name='female_pending'
+          placeholder=''
+          value={{orgName.female_pending}}
+        />
+        <label
+          class='block text-gray-300 text-sm font-bold mb-1'
+          for='female_available'
+        >
+          Available
+        </label>
+        <input
+          class='shadow appearance-none border rounded mb-4 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+          id='female_available'
+          type='tel'
+          name='female_available'
+          placeholder=''
+          value={{orgName.female_available}}
+        />
+        <!--Female end-->
+
+        <!--Male start-->
+        <p class='text-xl text-gray-400 font-normal mb-3 mt-5'><i
+            class='fas fa-male'
+          ></i>
+          Male</p>
+        <label
+          class='block text-gray-300 text-sm font-bold mb-1'
+          for='male_capacity'
+        >
+          Capacity
+        </label>
+        <input
+          class='shadow appearance-none border rounded mb-4 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+          id='male_capacity'
+          type='tel'
+          name='male_capacity'
+          placeholder=''
+          value={{orgName.male_capacity}}
+        />
+        <label
+          class='block text-gray-300 text-sm font-bold mb-1'
+          for='male_pending'
+        >
+          Pending
+        </label>
+        <input
+          class='shadow appearance-none border rounded mb-4 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+          id='male_pending'
+          type='tel'
+          name='male_pending'
+          placeholder=''
+          value={{orgName.male_pending}}
+        />
+        <label
+          class='block text-gray-300 text-sm font-bold mb-1'
+          for='male_available'
+        >
+          Available
+        </label>
+        <input
+          class='shadow appearance-none border rounded mb-4 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+          id='male_available'
+          type='tel'
+          name='male_available'
+          placeholder=''
+          value={{orgName.male_available}}
+        />
+        <!--Male end-->
+
+        {{#if orgName.special_prog_name}}
+          <hr class='mt-4' />
+          <!--Special Program Start-->
+          <p class='text-xl text-gray-200 font-bold my-4'>
+            Special Programme:
+            {{orgName.special_prog_name}}</p>
+          <!--Female start-->
+          <p class='text-xl text-gray-400 font-normal mb-3'><i
+              class='fas fa-female'
+            ></i>
+            Female</p>
+          <label
+            class='block text-gray-300 text-sm font-bold mb-1'
+            for='female_capacity'
+          >
+            Capacity
+          </label>
+          <input
+            class='shadow appearance-none border rounded mb-4 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+            id='special_prog_female_capacity'
+            type='tel'
+            name='special_prog_female_capacity'
+            placeholder=''
+            value={{orgName.special_prog_female_capacity}}
+          />
+          <label
+            class='block text-gray-300 text-sm font-bold mb-1'
+            for='female_pending'
+          >
+            Pending
+          </label>
+          <input
+            class='shadow appearance-none border rounded mb-4 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+            id='special_prog_female_pending'
+            type='tel'
+            name='special_prog_female_pending'
+            placeholder=''
+            value={{orgName.special_prog_female_pending}}
+          />
+          <label
+            class='block text-gray-300 text-sm font-bold mb-1'
+            for='female_available'
+          >
+            Available
+          </label>
+          <input
+            class='shadow appearance-none border rounded mb-4 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+            id='special_prog_female_available'
+            type='tel'
+            name='special_prog_female_available'
+            placeholder=''
+            value={{orgName.special_prog_female_available}}
+          />
+          <!--Female end-->
+
+          <!--Male start-->
+          <p class='text-xl text-gray-400 font-normal mb-3 mt-5'><i
+              class='fas fa-male'
+            ></i>
+            Male</p>
+          <label
+            class='block text-gray-300 text-sm font-bold mb-1'
+            for='male_capacity'
+          >
+            Capacity
+          </label>
+          <input
+            class='shadow appearance-none border rounded mb-4 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+            id='special_prog_male_capacity'
+            type='tel'
+            name='special_prog_male_capacity'
+            placeholder=''
+            value={{orgName.special_prog_male_capacity}}
+          />
+          <label
+            class='block text-gray-300 text-sm font-bold mb-1'
+            for='male_pending'
+          >
+            Pending
+          </label>
+          <input
+            class='shadow appearance-none border rounded mb-4 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+            id='special_prog_male_pending'
+            type='tel'
+            name='special_prog_male_pending'
+            placeholder=''
+            value={{orgName.special_prog_male_pending}}
+          />
+          <label
+            class='block text-gray-300 text-sm font-bold mb-1'
+            for='male_available'
+          >
+            Available
+          </label>
+          <input
+            class='shadow appearance-none border rounded mb-4 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+            id='special_prog_male_available'
+            type='tel'
+            name='special_prog_male_available'
+            placeholder=''
+            value={{orgName.special_prog_male_available}}
+          />
+          <!--Male end-->
+          <!--Special Program End-->
+        {{/if}}
+        <hr class='mt-4' />
+        <p class='text-xl text-gray-400 font-normal mb-3 mt-5'>
+          <i class='far fa-comment'></i>
+          Special Remarks</p>
+        <input
+          class='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+          id='special_remarks'
+          type='text'
+          name='special_remarks'
+          placeholder=''
+          value='{{orgName.special_remarks}}'
+        />
+        <p class='text-white text-xs text-left italic mb-4 mt-2' id='count'></p>
+        <button
+          class='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
+          type='submit'
+        >
+          Update
+        </button>
+      </form>
+    </div>
+  {{/block}}
+
+  {{#block 'js'}}
+    <script>
+      let specialRemarks = document.getElementById('special_remarks');
+      specialRemarks.onkeyup = () => { let maxLength = 800; if
+      (specialRemarks.value.length < maxLength) {
+      document.getElementById('count').innerHTML =
+      `${specialRemarks.value.length}/800` } else {
+      document.getElementById('count').innerHTML = `<span
+      class="text-red-100">${specialRemarks.value.length}/800 You have exceeded
+      the maximum number of characters</span>` } }
+    </script>
+  {{/block}}
+{{/extends}}

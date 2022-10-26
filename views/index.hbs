@@ -1,0 +1,123 @@
+{{#extends "base"}}
+
+  {{#block "title"}}🧠 Check Availability {{/block}}
+
+  {{#block "instructions"}}
+    <p class="text-lg text-gray-300 text-center font-bold mb-4">Thank you for
+      using this application. Kindly note that updates are usually made every
+      Monday and accurate as of the date reflected.</p>{{/block}}
+
+  {{#block "content"}}
+
+    {{#each rehabCentreDetails}}
+      <div
+        class="mb-5 w-full bg-gray-900 rounded-lg shadow-lg p-12 justify-center items-center"
+      >
+        <div class="text-center">
+          <p class="text-xl text-white font-bold mb-2">{{this.org_name}}</p>
+          <p class="text-base text-white font-bold mb-2"><i
+              class="fa-solid fa-square-phone"
+            ></i>
+            {{this.contact}}</p>
+          <p class="text-base text-gray-400 font-normal">{{dateFormat
+              this.last_updated
+              "Do MMMM YYYY"
+            }}</p>
+          <hr class="mt-4" />
+          <p class="text-base text-gray-200 font-normal my-3">Programme: Main
+            Adult Services</p>
+          <div class="grid grid-cols-3 my-5">
+            <div class="pt-7">
+              <p class="text-base text-gray-400 font-normal">Total</p>
+              <p class="text-base text-gray-400 font-normal">Pending</p>
+              <p class="text-base text-gray-400 font-normal">Available</p>
+            </div>
+            <div>
+              <p class="text-xl text-white font-bold mb-2"><i
+                  class="fas fa-female"
+                ></i></p>
+              <p
+                class="text-base text-white font-normal"
+              >{{this.female_capacity}}</p>
+              <p
+                class="text-base text-white font-normal"
+              >{{this.female_pending}}</p>
+              <p
+                class="text-base text-white font-normal"
+              >{{this.female_available}}</p>
+            </div>
+            <div>
+              <p class="text-xl text-white font-bold mb-2"><i
+                  class="fas fa-male"
+                ></i></p>
+              <p
+                class="text-base text-white font-normal"
+              >{{this.male_capacity}}</p>
+              <p
+                class="text-base text-white font-normal"
+              >{{this.male_pending}}</p>
+              <p
+                class="text-base text-white font-normal"
+              >{{this.male_available}}</p>
+            </div>
+          </div>
+          {{#if this.special_prog_name}}
+            <hr />
+            <p class="text-base text-gray-200 font-normal my-3">Programme:
+              {{this.special_prog_name}}</p>
+            <div class="grid grid-cols-3 my-5">
+              <div class="pt-7">
+                <p class="text-base text-gray-400 font-normal">Total</p>
+                <p class="text-base text-gray-400 font-normal">Pending</p>
+                <p class="text-base text-gray-400 font-normal">Available</p>
+              </div>
+              <div>
+                {{#if special_prog_female_capacity}}
+                  <p class="text-xl text-white font-bold mb-2"><i
+                      class="fas fa-female"
+                    ></i></p>
+
+                  <p
+                    class="text-base text-white font-normal"
+                  >{{this.special_prog_female_capacity}}</p>
+                  <p
+                    class="text-base text-white font-normal"
+                  >{{this.special_prog_female_pending}}</p>
+                  <p
+                    class="text-base text-white font-normal"
+                  >{{this.special_prog_female_available}}</p>
+                {{/if}}
+              </div>
+              <div>
+                {{#if special_prog_male_capacity}}
+                  <p class="text-xl text-white font-bold mb-2"><i
+                      class="fas fa-male"
+                    ></i></p>
+
+                  <p
+                    class="text-base text-white font-normal"
+                  >{{this.special_prog_male_capacity}}</p>
+                  <p
+                    class="text-base text-white font-normal"
+                  >{{this.special_prog_male_pending}}</p>
+                  <p
+                    class="text-base text-white font-normal"
+                  >{{this.special_prog_male_available}}</p>
+                {{/if}}
+              </div>
+            </div>
+          {{/if}}
+          <hr />
+          <p
+            class="mt-5 bg-green-500 rounded-lg p-3 text-base text-white font-normal"
+          >
+            {{this.special_remarks}}
+          </p>
+
+        </div>
+      </div>
+
+    {{/each}}
+
+  {{/block}}
+{{/extends}}
