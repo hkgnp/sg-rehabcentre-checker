@@ -1,5 +1,4 @@
 const router = require("express").Router();
-const crypto = require("crypto");
 
 const { checkIfSuperUser } = require("../middlewares");
 const { ObjectId } = require("mongodb");
