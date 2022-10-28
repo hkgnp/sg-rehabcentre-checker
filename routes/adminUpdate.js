@@ -19,8 +19,6 @@ router.get("/", checkIfSuperUser, async (req, res) => {
 
 router.post("/", checkIfSuperUser, async (req, res) => {
   if (req.session) {
-    const { _csrf, ...allOrgsData } = req.body;
-
     try {
       for (let i = 0; i < process.env.NO_OF_SERVICES; i++) {
         await req.mongoClient.collection("organisations").updateOne(
