@@ -89,17 +89,13 @@ app.use((req, res, next) => {
 const indexRoute = require("./routes/index");
 const userRoute = require("./routes/users");
 const updateRoute = require("./routes/update");
+const adminRoute = require("./routes/adminUpdate");
 
 (async () => {
   const db = await MongoUtil.connect(
     process.env.MONGO_URL,
     process.env.COLLECTION
   );
-
-  app.get("/_ah/warmup", (req, res) => {
-    // Handle your warmup logic. Initiate db connection, etc.
-    console.log("Warmup done");
-  });
 
   // add mongodb to middleware
   app.use((req, res, next) => {
@@ -116,6 +112,7 @@ const updateRoute = require("./routes/update");
   app.use("/", indexRoute);
   app.use("/user", userRoute);
   app.use("/update", updateRoute);
+  app.use("/admin-update", adminRoute);
 })();
 
 app.listen(process.env.PORT || 7000, () => {

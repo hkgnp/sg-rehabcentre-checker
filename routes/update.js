@@ -26,8 +26,7 @@ router.get("/", checkIfLoggedIn, async (req, res) => {
 router.post("/", async (req, res) => {
   if (req.session) {
     const orgId = req.session.user.org_id;
-    console.log(req.body);
-    let { _csrf, ...rehabCentreData } = req.body;
+    const { _csrf, ...rehabCentreData } = req.body;
     rehabCentreData["last_updated"] = new Date();
 
     try {
